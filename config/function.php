@@ -197,13 +197,38 @@ function getById($tableName, $id) {
  * ------------------------------------------------------------------
 */
 
+
 function delete($tableName, $id) {
     global $conn;
     $table = validate($tableName);
     $id = validate($id);
 
-    $query = " SELECT * FROM $table WHERE id = '$id' LIMIT 1 ";
+    $query = "DELETE FROM $table WHERE id = '$id' LIMIT 1";
     $result = mysqli_query($conn, $query);
-    return $result;
 
+    return $result;
+}
+
+/*
+ * -----------------------------------------------------------------
+
+        Function: Checking the parameter type like is it id or name
+
+ * ------------------------------------------------------------------
+*/
+
+function checkParam($type) {
+
+    if (isset($_GET[$type])) {
+
+        if ($_GET[$type] != '') {
+
+            return $_GET[$type];
+
+        } else {
+            echo '<h5>No Id Found.!</h5>';
+        }
+    } else {
+        echo '<h5>No Id were given.</h5>';
+    }
 }

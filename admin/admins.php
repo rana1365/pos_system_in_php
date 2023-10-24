@@ -19,6 +19,8 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -39,8 +41,22 @@
                             <td><?= $admin['email'] ?></td>
                             <td><?= $admin['phone'] ?></td>
                             <td>
+                                <?php
+                                if ($admin['is_ban'] == 0) {
+
+                                    echo '<a href = "active-status.php?id='.$admin['id'].'&status=0" class="btn btn-primary btn-sm">active</a>';
+
+                                } else{
+
+                                    echo '<a href = "active-status.php?id='.$admin['id'].'&status=1" class="btn btn-danger btn-sm">inactive</a>';
+
+                                }
+                                ?>
+                            </td>
+
+                            <td>
                                 <a href="admins-edit.php?id=<?=$admin['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                <a href="admins-delete.php" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="admins-delete.php?id=<?=$admin['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
