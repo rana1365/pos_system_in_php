@@ -64,7 +64,7 @@
                 <div class="collapse" id="collapseAdmin" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="admins-create.php">Add Admin</a>
-                        <a class="nav-link" href="admins.php">Views Admin</a>
+                        <a class="nav-link" href="admins.php">View Admin</a>
                     </nav>
                 </div>
             </div>
