@@ -2,6 +2,22 @@
 
 include('inc/header.php');
 
+/*
+ * -----------------------------------------------------------------
+
+        After LoggedIn, a user can not access login.php
+
+ * ------------------------------------------------------------------
+*/
+if (isset($_SESSION['loggedIn'])) {
+    ?>
+
+    <script>window.location.href = 'index.php'</script>
+
+<?php
+
+}
+
 ?>
 
     <div class="py-0 bg-light">

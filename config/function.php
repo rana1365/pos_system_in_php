@@ -232,3 +232,17 @@ function checkParam($type) {
         echo '<h5>No Id were given.</h5>';
     }
 }
+
+/*
+ * -----------------------------------------------------------------
+
+        Function: Logout Session Function
+
+ * ------------------------------------------------------------------
+*/
+
+function logoutSession() {
+
+    unset($_SESSION['loggedIn']);
+    unset($_SESSION['loggedInUser']);
+}
