@@ -40,11 +40,11 @@
                                         <?php
                                         if ($category['status'] == 0) {
 
-                                            echo '<a href = "active-status.php?id='.$category['id'].'&status=0" class="btn btn-primary btn-sm">Hidden</a>';
+                                            echo '<a href = "active-status.php?id='.$category['id'].'&status=0" class="btn btn-primary btn-sm">Visible</a>';
 
                                         } else{
 
-                                            echo '<a href = "active-status.php?id='.$category['id'].'&status=1" class="btn btn-danger btn-sm">Visible</a>';
+                                            echo '<a href = "active-status.php?id='.$category['id'].'&status=1" class="btn btn-danger btn-sm">Hidden</a>';
 
                                         }
                                         ?>

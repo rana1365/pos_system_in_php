@@ -6,7 +6,7 @@
         <div class="card-header">
             <h4 class="mb-0">Categories
 
-                <a href="admins.php" class="btn btn-success float-end">Back</a>
+                <a href="categories.php" class="btn btn-success float-end">Back</a>
 
             </h4>
         </div>

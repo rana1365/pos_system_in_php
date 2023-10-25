@@ -47,6 +47,7 @@ if (isset($_POST['saveAdmin'])) {
     }
 }
 
+
 if (isset($_POST['updateAdmin'])) {
 
     $admin_id = validate($_POST['admin_id']);
