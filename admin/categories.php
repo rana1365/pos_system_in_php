@@ -73,6 +73,8 @@
                 </div>
             </div>
 
+            <h2> Welcome to the paramoy Life</h2>
+
         </div>
     </div>
 
