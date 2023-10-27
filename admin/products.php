@@ -16,7 +16,7 @@
                 <table class="table table-striped table-bordered mt-3">
                     <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>S/N</th>
                         <th>Image</th>
                         <th>Name</th>
                         <th>Status</th>
@@ -44,11 +44,11 @@
                                     <?php
                                     if ($product['status'] == 0) {
 
-                                        echo '<a href = "active-status.php?id='.$product['id'].'&status=0" class="btn btn-primary btn-sm">Visible</a>';
+                                        echo '<a href = "products.php" class="btn btn-primary btn-sm">Visible</a>';
 
                                     } else{
 
-                                        echo '<a href = "active-status.php?id='.$product['id'].'&status=1" class="btn btn-danger btn-sm">Hidden</a>';
+                                        echo '<a href = "products.php" class="btn btn-danger btn-sm">Hidden</a>';
 
                                     }
                                     ?>
@@ -56,7 +56,9 @@
 
                                 <td>
                                     <a href="products-edit.php?id=<?=$product['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                    <a href="products-delete.php?id=<?=$product['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="products-delete.php?id=<?=$product['id']; ?>"
+                                       class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete it.?')">Delete
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
