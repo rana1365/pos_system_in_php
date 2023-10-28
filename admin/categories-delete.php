@@ -7,7 +7,6 @@ $paramResult = checkParam('id');
 if (is_numeric($paramResult)) {
 
     $category_id = validate($paramResult);
-//    echo $admin_id;
 
     $category_data = getById('categories', $category_id);
 
