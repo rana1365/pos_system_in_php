@@ -4,7 +4,7 @@
 <div class="container-fluid px-4">
     <div class="card mt-4 shadow-sm">
         <div class="card-header">
-            <h4 class="mb-0">Categories
+            <h4 class="mb-0">Add Categories
 
                 <a href="categories.php" class="btn btn-success float-end">Back</a>
 

@@ -1,0 +1,13 @@
+/*
+    Order creation product select dropdown list design
+*/
+.select2-container .select2-selection--single {
+    height: 36px!important;
+}
+.select2-container .select2-selection--single .select2-selection_rendered {
+    line-height: 36px!important;
+}
+
+.select2-container .select2-selection--single .select2-selection_arrow {
+    height: 36px!important;
+}

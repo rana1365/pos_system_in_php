@@ -4,7 +4,7 @@
     <div class="container-fluid px-4">
         <div class="card mt-4 shadow-sm">
             <div class="card-header">
-                <h4 class="mb-0">Products
+                <h4 class="mb-0">Add Products
 
                     <a href="products.php" class="btn btn-success float-end">Back</a>
 
@@ -19,7 +19,7 @@
 
                         <div class="col-md-8">
                             <label class="mb-2" for="Select Category">Select Category</label>
-                            <select name="category_id" class="form-control mb-2">
+                            <select name="category_id" class="form-select mb-2">
                                 <option value="">Select Category</option>
                                 <?php
 
