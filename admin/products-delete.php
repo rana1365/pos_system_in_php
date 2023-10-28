@@ -7,7 +7,6 @@ $paramResult = checkParam('id');
 if (is_numeric($paramResult)) {
 
     $product_id = validate($paramResult);
-//    echo $admin_id;
 
     $product_data = getById('products', $product_id);
 
