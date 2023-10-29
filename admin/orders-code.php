@@ -83,15 +83,15 @@ if (isset($_POST['addItem'])) {
     }
 
 
-    $result = insert('products', $data);
-
-    if ($result) {
-
-        redirect('products.php', 'Product has created Successfully!.');
-
-    } else {
-
-        redirect('products-create.php', 'Something Went Wrong!.');
-
-    }
+//    $result = insert('products', $data);
+//
+//    if ($result) {
+//
+//        redirect('products.php', 'Product has created Successfully!.');
+//
+//    } else {
+//
+//        redirect('products-create.php', 'Something Went Wrong!.');
+//
+//    }
 }
