@@ -102,6 +102,7 @@
                                         <td><?= $item['price']; ?></td>
                                         <td>
                                             <div class="input-group qtyBox">
+                                                <input type="hidden" value="<?= $item['product_id']; ?>" class="prodId" />
                                                 <button class="input-group-text decrement"> - </button>
                                                 <input type="text" value="<?= $item['quantity']; ?>" class="qty quantityInput" />
                                                 <button class="input-group-text increment"> + </button>
