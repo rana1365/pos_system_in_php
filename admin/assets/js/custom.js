@@ -64,4 +64,127 @@ $(document).ready( function () {
 
     }
 
+    //Proceed to place order Button Click
+
+    $(document).on('click', '.proceedToPlaceBtn', function () {
+
+        //console.log('proceedToPlace');
+
+        var cphone = $('#cphone').val();
+        var payment_mode = $('#payment_mode').val();
+
+        if (payment_mode == '') {
+            swal("Select Payment Mode", "Select your payment mode", "warning");
+            return false;
+        }
+
+        if (cphone == '' && !$.isNumeric(cphone)) {
+            swal("Enter Phone Number", "Enter Valid Phone Number", "warning");
+            return false;
+        }
+
+        var data = {
+
+            'proceedToPlaceBtn' : true,
+            'cphone' : cphone,
+            'payment_mode' : payment_mode,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "orders-code.php",
+            data: data,
+            success: function (response) {
+                var res = JSON.parse(response);
+
+                if (res.status == 200) {
+                    window.location.href = "order-summery.php";
+
+                } else if (res.status == 404) {
+
+                    swal(res.message, res.message, res.status_type, {
+                        buttons: {
+                            catch: {
+                                text: "Add Customer",
+                                value: "catch"
+
+                            },
+
+                            cancel: "Cancel"
+                        }
+                    })
+
+                    .then((value) => {
+                        switch (value) {
+
+                            case "catch":
+
+                                $('#addCustomerModal').modal('show');
+                                //console.log('Pop up the Customer Add Modal');
+                                break;
+
+                            default:
+                        }
+
+                    });
+
+                } else {
+                    swal(res.message, res.message, res.status_type);
+                }
+
+            }
+        });
+
+    });
+
+    // Add Customer to database(customers) Table
+
+    $().on('click', '.saveCustomerBtn', function () {
+
+        var c_name = $('#c_name').val();
+        var c_phone = $('#c_phone').val();
+        var c_email = $('#c_email').val();
+
+        if (c_name != '' && c_phone != '') {
+
+            if ($.isNumeric(c_phone)) {
+
+                var data = {
+
+                    'saveCustomerBtn': true,
+                    'name': c_name,
+                    'phone': c_phone,
+                    'email': c_email,
+
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "orders-code.php",
+                    data: data,
+                    success: function () {
+                        var res = JSON.parse(response);
+
+                        if (res.status == 200) {
+                            swal(res.message, res.message, res.status_type);
+                            $('#addCustomerModal').modal('hide');
+
+                        } else if(res.status == 422) {
+                            swal(res.message, res.message, res.status_type);
+                        } else {
+                            swal(res.message, res.message, res.status_type);
+                        }
+                    }
+                });
+
+            } else {
+                swal("Enter Valid Phone Number", "", "warning");
+            }
+
+        } else {
+            swal("Please Fill the required Fields", "", "warning");
+        }
+
+    });
+
 });
