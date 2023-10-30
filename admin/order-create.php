@@ -50,7 +50,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="mb-2" for="Quantity">Quantity *</label>
-                            <input type="number" name="quantity" class="form-control" required />
+                            <input type="number" value="1" name="quantity" class="form-control" required />
                         </div>
 
                         <div class="col-md-12 mb-3 text-end">
@@ -69,15 +69,21 @@
             <div class="card-header">
                 <h4>Products</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body" id="productArea">
                 <?php
 
                     if (isset($_SESSION['productItems'])) {
 
                         $sessionProducts = $_SESSION['productItems'];
 
+                        if (empty($sessionProducts)) {
+
+                            unset($_SESSION['productItemId']);
+                            unset($_SESSION['productItems']);
+                        }
+
                         ?>
-                        <div class="table-responsive mb-3">
+                        <div class="table-responsive mb-3" id="productContent">
                             <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -110,7 +116,7 @@
                                         </td>
                                         <td><?= number_format($item['price'] * $item['quantity'], 0); ?></td>
                                         <td>
-                                            <a href="order-item-delete.php?index =<?= $key; ?> " class="btn btn-danger" >Remove</a>
+                                            <a href="order-item-delete.php?index=<?= $key; ?> " class="btn btn-danger" >Remove</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
