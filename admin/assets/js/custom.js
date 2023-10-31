@@ -118,7 +118,7 @@ $(document).ready( function () {
                         switch (value) {
 
                             case "catch":
-
+                                $('#c_phone').val(cphone);
                                 $('#addCustomerModal').modal('show');
                                 //console.log('Pop up the Customer Add Modal');
                                 break;
@@ -139,7 +139,7 @@ $(document).ready( function () {
 
     // Add Customer to database(customers) Table
 
-    $().on('click', '.saveCustomerBtn', function () {
+    $(document).on('click', '.saveCustomerBtn', function () {
 
         var c_name = $('#c_name').val();
         var c_phone = $('#c_phone').val();
@@ -162,7 +162,7 @@ $(document).ready( function () {
                     type: "POST",
                     url: "orders-code.php",
                     data: data,
-                    success: function () {
+                    success: function (response) {
                         var res = JSON.parse(response);
 
                         if (res.status == 200) {

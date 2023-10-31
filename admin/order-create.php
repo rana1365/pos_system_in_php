@@ -1,4 +1,8 @@
-<?php include('inc/header.php'); ?>
+<?php
+
+include('inc/header.php');
+
+?>
 
     <!-- Modal -->
     <div class="modal fade" id="addCustomerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -10,17 +14,17 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="mb-1">Enter Customer Name</label>
+                        <label for="c_name" class="mb-1">Enter Customer Name</label>
                         <input type="text" class="form-control" id="c_name" />
                     </div>
 
                     <div class="mb-3">
-                        <label class="mb-1">Enter Phone Number</label>
+                        <label for="c_phone" class="mb-1">Enter Phone Number</label>
                         <input type="text" class="form-control" id="c_phone" />
                     </div>
 
                     <div class="mb-3">
-                        <label class="mb-1">Enter Email (optional)</label>
+                        <label for="c_email" class="mb-1">Enter Email (optional)</label>
                         <input type="text" class="form-control" id="c_email" />
                     </div>
                 </div>
@@ -190,4 +194,8 @@
     </div>
 
 
-<?php include('inc/footer.php'); ?>
+<?php
+
+include('inc/footer.php');
+
+?>
