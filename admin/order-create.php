@@ -157,38 +157,38 @@ include('inc/header.php');
                                 </tbody>
                             </table>
                         </div>
-
-                        <div class="mt-2">
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label class="mb-2" for="selectPayment"> Select Payment Mode</label>
-                                    <select id="payment_mode" class="form-select">
-                                        <option value="Cash Payment">-- Select Payment --</option>
-                                        <option value="Cash Payment">Cash Payment</option>
-                                        <option value="Online Payment">Online Payment</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="mb-2" for="Customer Phone">Entry Customer Phone</label>
-                                    <input type="number" id="cphone" class="form-control" value="" />
-                                </div>
-
-                                <div class="col-md-4 mt-2">
-                                    <br/>
-                                    <button type="button" class="btn btn-warning w-100 proceedToPlaceBtn">Proceed to Place Order</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <?php
-                    } else {
-                        echo '<h5>No Items added.!</h5>';
-                    }
-
-                ?>
             </div>
+
+            <div class="mt-2">
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="mb-2" for="selectPayment"> Select Payment Mode</label>
+                        <select id="payment_mode" class="form-select">
+                            <option value="Cash Payment">-- Select Payment --</option>
+                            <option value="Cash Payment">Cash Payment</option>
+                            <option value="Online Payment">Online Payment</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="mb-2" for="Customer Phone">Entry Customer Phone</label>
+                        <input type="number" id="cphone" class="form-control" value="" />
+                    </div>
+
+                    <div class="col-md-4 mt-2">
+                        <br/>
+                        <button type="button" class="btn btn-warning w-100 proceedToPlaceBtn">Proceed to Place Order</button>
+                    </div>
+                </div>
+            </div>
+
+            <?php
+            } else {
+                echo '<h5>No Items added.!</h5>';
+            }
+
+            ?>
         </div>
 
     </div>

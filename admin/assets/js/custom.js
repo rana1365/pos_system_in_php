@@ -1,6 +1,6 @@
 $(document).ready( function () {
 
-    alertify.set('notifier','position', 'top-right');
+    //alertify.set('notifier','position', 'top-right');
 
     $(document).on('click', '.increment', function () {
 
@@ -53,10 +53,10 @@ $(document).ready( function () {
 
                     //window.location.reload();
                     $('#productArea').load(' #productContent');
-                    alertify.success(res.message);
+                    //alertify.success(res.message);
                 } else {
                     $('#productArea').load(' #productContent');
-                    alertify.error(res.message);
+                    //alertify.error(res.message);
                 }
 
             }
@@ -184,6 +184,33 @@ $(document).ready( function () {
         } else {
             swal("Please Fill the required Fields", "", "warning");
         }
+
+    });
+
+
+    $(document).on('click', '#saveOrder', function () {
+
+        $.ajax({
+            type: "POST",
+            url: "orders-code.php",
+            data: {
+
+                'saveOrder': true
+
+            },
+            success: function (response) {
+
+                var res = JSON.parse(response);
+
+                if (res.status == 200) {
+                    swal(res.message, res.message, res.status_type);
+
+                } else {
+                    swal(res.message, res.message, res.status_type);
+                }
+
+            }
+        });
 
     });
 
