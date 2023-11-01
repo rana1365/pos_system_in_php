@@ -204,6 +204,8 @@ $(document).ready( function () {
 
                 if (res.status == 200) {
                     swal(res.message, res.message, res.status_type);
+                    $('#orderPlaceSuccessMessage').text(res.message);
+                    $('#orderSuccessModal').modal('show');
 
                 } else {
                     swal(res.message, res.message, res.status_type);
