@@ -217,3 +217,36 @@ $(document).ready( function () {
     });
 
 });
+
+
+function printMyBilling() {
+
+    var divContents = document.getElementById("printMyBilling").innerHTML;
+    var a = window.open('', '');
+    a.document.write('<html><title>POS System</title>');
+    a.document.write('<body style = "font-family: fangsong;">');
+    a.document.write(divContents);
+    a.document.write('</body></html>');
+    a.document.close();
+    a.print();
+
+}
+
+window.jsPDF = window.jspdf.jsPDF;
+var docPDF = new jsPDF();
+
+function downloadPdf(invoiceNo) {
+
+    var elementHTML = document.querySelector("#printMyBilling");
+    docPDF.html(elementHTML, {
+       callback: function () {
+           docPDF.save(invoiceNo+'.pdf');
+
+       },
+        x:15,
+        y:15,
+        width: 170,
+        windowWidth: 650
+    });
+
+}
