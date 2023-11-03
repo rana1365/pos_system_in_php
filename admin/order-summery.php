@@ -19,8 +19,8 @@ if (!isset($_SESSION['productItems'])) {
             </div>
             <div class="modal-footer">
                 <a href="orders.php" class="btn btn-secondary">Close</a>
-                <a href="orders-view-print.php" type="button" class="btn btn-danger">Print</a>
-                <a href="orders-view-print.php" type="button" class="btn btn-warning">Download Pdf</a>
+                <button onclick="printMyBilling()" type="button" class="btn btn-danger">Print</button>
+                <button onclick="downloadPdf('<?= $_SESSION['invoice_no']; ?>')" type="button" class="btn btn-warning">Download Pdf</button>
             </div>
         </div>
     </div>

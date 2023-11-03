@@ -4,7 +4,42 @@
 <div class="container-fluid px-4">
     <div class="card mt-4 shadow-sm">
         <div class="card-header">
-            <h4 class="mb-0">Orders</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 class="mb-0">Orders</h4>
+                </div>
+                <div class="col-md-9">
+                    <form action="" method="GET">
+                        <div class="row g-1">
+                            <div class="col-md-4">
+                                <input type="date" name="date" class="form-control"
+                                    value="<?= isset($_GET['date']) == true ? $_GET['date']: '' ?>"
+                                />
+                            </div>
+                            <div class="col-md-4">
+                                <select name="payment_mode" class="form-select">
+                                    <option value="">Select Payment Status</option>
+                                    <option
+                                            value="cash_payment" <?= isset($_GET['payment_mode']) == true ?
+                                            ($_GET['payment_mode']) == 'cash_payment' ? 'selected' : ''
+                                            : ''; ?>
+                                            >Cash Payment
+                                    </option>
+                                    <option
+                                        value="online_payment" <?= isset($_GET['payment_mode']) == true ?
+                                        ($_GET['payment_mode']) == 'online_payment' ? 'selected' : ''
+                                        : ''; ?>
+                                    >Online Payment</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                                <a href="orders.php" class="btn btn-danger">Reset</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="card-body">
 
