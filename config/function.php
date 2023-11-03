@@ -266,3 +266,31 @@ function jsonResponse ($status, $status_type, $message) {
     echo json_encode($response);
     return;
 }
+
+
+/*
+ * -----------------------------------------------------------------
+
+        Function: Total Counting Function
+
+ * ------------------------------------------------------------------
+*/
+
+
+function getCount($tableName) {
+
+    global $conn;
+    $table = validate($tableName);
+    $query = " SELECT * FROM $table ";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+
+        $totalCount = mysqli_num_rows($result);
+        return $totalCount;
+
+    } else {
+        return 'Something went wrong.!';
+    }
+
+}

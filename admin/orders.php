@@ -20,14 +20,14 @@
                                 <select name="payment_mode" class="form-select">
                                     <option value="">Select Payment Status</option>
                                     <option
-                                            value="cash_payment" <?= isset($_GET['payment_mode']) == true ?
-                                            ($_GET['payment_mode']) == 'cash_payment' ? 'selected' : ''
+                                            value="Cash Payment" <?= isset($_GET['payment_mode']) == true ?
+                                            ($_GET['payment_mode']) == 'Cash Payment' ? 'selected' : ''
                                             : ''; ?>
                                             >Cash Payment
                                     </option>
                                     <option
-                                        value="online_payment" <?= isset($_GET['payment_mode']) == true ?
-                                        ($_GET['payment_mode']) == 'online_payment' ? 'selected' : ''
+                                        value="Online Payment" <?= isset($_GET['payment_mode']) == true ?
+                                        ($_GET['payment_mode']) == 'Online Payment' ? 'selected' : ''
                                         : ''; ?>
                                     >Online Payment</option>
                                 </select>
@@ -44,10 +44,33 @@
         <div class="card-body">
 
             <?php
+            if (isset($_GET['date']) || isset($_GET['payment_mode'])) {
+
+                $orderDate = validate($_GET['date']);
+                $payment_mode = validate($_GET['payment_mode']);
+                if ($orderDate != '' && $payment_mode == '') {
+
+                    $query = " SELECT o.*, c.* FROM orders o, customers c 
+                            WHERE c.id = o.customer_id AND o.order_date = '$orderDate' ORDER BY o.id DESC ";
+                } elseif ($orderDate == '' && $payment_mode != '') {
+                    $query = " SELECT o.*, c.* FROM orders o, customers c 
+                            WHERE c.id = o.customer_id AND o.payment_mode = '$payment_mode' ORDER BY o.id DESC ";
+
+                } elseif ($orderDate != '' && $payment_mode != '') {
+
+                    $query = " SELECT o.*, c.* FROM orders o, customers c 
+                            WHERE c.id = o.customer_id AND o.order_date = '$orderDate' 
+                            AND o.payment_mode = '$payment_mode' ORDER BY o.id DESC ";
+                } else {
+                    $query = " SELECT o.*, c.* FROM orders o, customers c WHERE c.id = o.customer_id ORDER BY o.id DESC ";
+                }
+
+            } else {
 
                 $query = " SELECT o.*, c.* FROM orders o, customers c WHERE c.id = o.customer_id ORDER BY o.id DESC ";
-                $orders = mysqli_query($conn, $query);
 
+            }
+                $orders = mysqli_query($conn, $query);
                 if ($orders) {
 
                     if (mysqli_num_rows($orders) > 0 ) {
