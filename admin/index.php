@@ -61,6 +61,39 @@
     </div>
 
 </div>
+
+    <div class="row mt-4">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">
+                    <h5 class="text-center">Today's Total Order</h5>
+                    <div class="card-footer d-flex align-items-center justify-content-center">
+                        <h1 class="text-white text-center stretched-link" >
+                            <?php
+
+                            $todayDate = date('Y-m-d');
+                            $todayOrders = mysqli_query($conn, " SELECT * FROM orders WHERE order_date = '$todayDate'");
+                            if ($todayOrders) {
+                                if(mysqli_num_rows($todayOrders) > 0) {
+                                    $totalTodayOrders = mysqli_num_rows($todayOrders);
+                                    echo $totalTodayOrders;
+                                }
+                            } else {
+                                echo '<h6>Something went wrong.!</h6>';
+                            }
+                            ?>
+                        </h1>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
 </div>
 
 
